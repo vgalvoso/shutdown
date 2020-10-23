@@ -24,7 +24,7 @@ echo      ****     ****    ************ ***********   *******     *******   ****
 echo.
 echo.
 echo.
-echo                                       to Van's Command
+echo                                       to Van's Command 2020
 echo.
 echo.
 echo.
