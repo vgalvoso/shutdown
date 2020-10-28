@@ -24,7 +24,7 @@ echo      ****     ****    ************ ***********   *******     *******   ****
 echo.
 echo.
 echo.
-echo                                       to Van's Command 2020
+echo                                       to Van's Command
 echo.
 echo.
 echo.
@@ -42,8 +42,8 @@ echo                                         [1] Shutdown
 echo                                         [2] Shutdown and Lock
 echo                                         [3] Abort Shutdown
 echo                                         [4] Attrib
-echo                                         [bk] Back
-echo                                         [ex] Exit
+echo                                         [b] Back
+echo                                         [e] Exit
 echo.
 
 set /p action=.                                     What do you want to do? 
@@ -52,8 +52,8 @@ if %action%==1 (call :shut)
 if %action%==2 (call :shutlock)
 if %action%==3 (call :abort)
 if %action%==4 (call :attrib)
-if %action%==bk (call :back main)
-if %action%==ex Exit
+if %action%==b (call :back main)
+if %action%==e Exit
 EXIT /B 0
 
 :shut
@@ -85,9 +85,9 @@ EXIT /B 0
   start shutdown.exe -a
   cls
   echo Shutdown cancelled
-  echo This message will close automatically
+  echo Redirecting...
   TIMEOUT /T 5   
-EXIT /B 0
+call :main
 
 :back
   if %~1==main (call :main)
