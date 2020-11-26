@@ -42,8 +42,8 @@ echo                                         [1] Shutdown
 echo                                         [2] Shutdown and Lock
 echo                                         [3] Abort Shutdown
 echo                                         [4] Attrib
-echo                                         [b] Back
-echo                                         [e] Exit
+echo                                         [-] Back
+echo                                         [x] Exit
 echo.
 
 set /p action=.                                     What do you want to do? 
@@ -52,14 +52,14 @@ if %action%==1 (call :shut)
 if %action%==2 (call :shutlock)
 if %action%==3 (call :abort)
 if %action%==4 (call :attrib)
-if %action%==b (call :back main)
-if %action%==e Exit
+if %action%==- (call :back main)
+if %action%==x Exit
 EXIT /B 0
 
 :shut
   set /p timeShut= Enter hour(s):
-  if %timeShut%==b (call :back dashboard)
-  if %timeShut%==e Exit
+  if %timeShut%==- (call :back dashboard)
+  if %timeShut%==x Exit
   set /a shutSeconds= (%timeShut% * 3600)
   cls
   echo %timeShut% hour(s) to shutdown...
@@ -70,8 +70,8 @@ EXIT /B 0
 
 :shutlock
   set /p timeShut= Enter hour(s):
-  if %timeShut%==b (call :back dashboard)
-  if %timeShut%==e Exit
+  if %timeShut%==- (call :back dashboard)
+  if %timeShut%==x Exit
   set /a shutSeconds= (%timeShut% * 3600)
   cls
   echo %timeShut% hour(s) to shutdown...
@@ -96,8 +96,8 @@ exit /b 0
 
 :attrib
   set /p drive= Enter drive letter:
-  if %drive%==b (call :back dashboard)
-  if %drive%==e Exit
+  if %drive%==- (call :back dashboard)
+  if %drive%==x Exit
   start attrib.exe -s -h -r /s /dxi %drive%:*.* 
   echo Attrib Success
   pause
