@@ -58,8 +58,8 @@ EXIT /B 0
 
 :shut
   set /p timeShut= Enter hour(s):
-  if %timeShut%==bk (call :back dashboard)
-  if %timeShut%==ex Exit
+  if %timeShut%==b (call :back dashboard)
+  if %timeShut%==e Exit
   set /a shutSeconds= (%timeShut% * 3600)
   cls
   echo %timeShut% hour(s) to shutdown...
@@ -70,8 +70,8 @@ EXIT /B 0
 
 :shutlock
   set /p timeShut= Enter hour(s):
-  if %timeShut%==bk (call :back dashboard)
-  if %timeShut%==ex Exit
+  if %timeShut%==b (call :back dashboard)
+  if %timeShut%==e Exit
   set /a shutSeconds= (%timeShut% * 3600)
   cls
   echo %timeShut% hour(s) to shutdown...
@@ -96,8 +96,8 @@ exit /b 0
 
 :attrib
   set /p drive= Enter drive letter:
-  if %drive%==bk (call :back dashboard)
-  if %drive%==ex Exit
+  if %drive%==b (call :back dashboard)
+  if %drive%==e Exit
   start attrib.exe -s -h -r /s /dxi %drive%:*.* 
   echo Attrib Success
   pause
