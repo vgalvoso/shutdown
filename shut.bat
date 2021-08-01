@@ -61,10 +61,11 @@ EXIT /B 0
   if %timeShut%==- (call :back dashboard)
   if %timeShut%==x Exit
   set /a shutSeconds= (%timeShut% * 3600)
+  if %shutSeconds%==0 (call :back dashboard)
   cls
   echo %timeShut% hour(s) to shutdown...
   start shutdown.exe /s /t %shutSeconds%
-  echo This message will close automatically
+  Rem echo This message will close automatically
   TIMEOUT /T 10
 EXIT /B 0
 
@@ -73,10 +74,11 @@ EXIT /B 0
   if %timeShut%==- (call :back dashboard)
   if %timeShut%==x Exit
   set /a shutSeconds= (%timeShut% * 3600)
+  if %shutSeconds%==0 (call :back dashboard)
   cls
   echo %timeShut% hour(s) to shutdown...
   start shutdown.exe /s /t %shutSeconds%
-  echo This computer will be locked down
+  Rem echo This computer will be locked down
   TIMEOUT /T 10
   rundll32.exe user32.dll, LockWorkStation
 EXIT /B 0
